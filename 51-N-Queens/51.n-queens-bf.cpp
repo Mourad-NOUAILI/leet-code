@@ -10,6 +10,14 @@ class Solution {
         vector<vector<string>> ans;
 
     public:
+        /**
+         * This function checks if there is already a queen in the column or the diagonal or the anti-diagonal of a given cell
+         * @param int row: the row index
+         * @param int col: the column index
+         * @param int n - the size of the chess board
+         * @param array board: the current chess board
+         * @return bool: return true if we can put a queen in cell (row,col) on the nxn chess board, false otherwise
+        */
         bool can_we_put_a_queen_in_column(int row, int col, int n,vector<vector<string>> board){
             // Check if a queen exists in same column
             for (int i = 0 ; i < n ; ++i)

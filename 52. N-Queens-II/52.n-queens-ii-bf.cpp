@@ -19,12 +19,12 @@ class Solution {
 
                 // Check if a queen exists in the diagonal of the given cell
                 // No need to check the bottom side of the diagonal
-                for(int i = row , j = col ; i >= 0 && j >= 0 ; --i,--j)
+                for(int i = row-1 , j = col-1 ; i >= 0 && j >= 0 ; --i,--j)
                     if (board[i][j] == "Q") return false;
 
                 // Chech if a queen exists in the anti-diagonal
                 // No need to check the bottom side of the diagonal
-                for(int i = row , j = col ; i >=0 && j < n ; --i,++j)
+                for(int i = row-1 , j = col+1 ; i >=0 && j < n ; --i,++j)
                     if (board[i][j] == "Q") return false;
                 
                 return true;

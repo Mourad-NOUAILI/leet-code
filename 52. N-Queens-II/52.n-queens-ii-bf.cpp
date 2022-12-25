@@ -13,7 +13,8 @@ class Solution {
     public:
          bool we_can_put_a_queen_in_column(int row, int col, int n,std::vector<std::vector<std::string>> board){
                 // Check if a queen exists in same column
-                for (int i = 0 ; i < n ; ++i)
+                // No need to check below the row
+                for (int i = 0 ; i < row ; ++i)
                     if (board[i][col] == "Q") return false;
 
                 // Check if a queen exists in the diagonal of the given cell

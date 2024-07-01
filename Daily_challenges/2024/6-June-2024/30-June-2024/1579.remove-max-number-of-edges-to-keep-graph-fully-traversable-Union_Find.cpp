@@ -71,7 +71,11 @@ class Solution {
                     if(Alice.unify(edge[1],edge[2])) alice++;
                 }
             }
-    
+
+               // Graph must be traversable for Alice and bob => Graph should be connected => E=V-1
+         	    // #edges for both+#edges of bob == n-1
+         	    // #edges for both+#edges of Alice == n-1
+         	    // #edges to remove=E-(#edges for both+#edges of Alice+#edges of bob)
             return both+alice==n-1&&both+bob==n-1?edges.size()-both-alice-bob:-1;   
         }
 };

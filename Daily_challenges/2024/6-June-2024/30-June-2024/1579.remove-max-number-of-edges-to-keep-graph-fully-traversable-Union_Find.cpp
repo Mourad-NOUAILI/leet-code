@@ -59,26 +59,20 @@ class Solution {
             UnionFind Alice=UnionFind(n);
             UnionFind Bob=UnionFind(n);
 
-            int bob=0,alice=0,to_remove=0;
+            int bob=0,alice=0,both=0;
             for(auto& edge: edges){
                 if(edge[0]==3){
-                    if(Alice.unify(edge[1],edge[2]) && Bob.unify(edge[1],edge[2])){
-                        alice++;
-                        bob++;
-                    }
-                    else to_remove++;
+                    if(Alice.unify(edge[1],edge[2]) && Bob.unify(edge[1],edge[2])) both++;
                 }
                 else if(edge[0]==2){
                     if(Bob.unify(edge[1],edge[2])) bob++;
-                    else to_remove++;
                 }
                 else{
                     if(Alice.unify(edge[1],edge[2])) alice++;
-                    else to_remove++;
                 }
             }
-
-            return alice==n-1&&bob==n-1?to_remove:-1;    
+    
+            return both+alice==n-1&&both+bob==n-1?edges.size()-both-alice-bob:-1;   
         }
 };
 // @lc code=end

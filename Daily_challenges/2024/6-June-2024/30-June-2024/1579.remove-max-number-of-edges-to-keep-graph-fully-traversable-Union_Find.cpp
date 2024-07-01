@@ -10,10 +10,10 @@
 class UnionFind{
      public:
         std::vector<int> parent;
-        std::vector<int> groups;
+        //std::vector<int> groups;
     public:
         UnionFind(int n){
-            groups.resize(n+1,1);
+            //groups.resize(n+1,1);
             parent.resize(n+1,0);
             for (int i=1 ;i<=n;++i) parent[i]=i;
         }
@@ -37,8 +37,10 @@ class UnionFind{
             int parent_q=find(q);
 
             if (parent_p==parent_q) return false;
-           
-            if (groups[parent_p]<groups[parent_q]){
+            
+             parent[parent_p]=parent_q;
+             
+            /*if (groups[parent_p]<groups[parent_q]){
                 groups[parent_q]+=groups[parent_p];
                 groups[parent_p]=1;
                 parent[parent_p]=parent_q;
@@ -47,7 +49,7 @@ class UnionFind{
                 groups[parent_p]+=groups[parent_q];
                 groups[parent_q]=1;
                 parent[parent_q]=parent_p;
-            }
+            }*/
             return true;
         }
 };

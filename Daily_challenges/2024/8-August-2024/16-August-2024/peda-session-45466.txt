@@ -1,0 +1,6 @@
+break 2134.minimum-swaps-to-group-all-1-s-together-ii-V2.cpp:30
+break 624.maximum-distance-in-arrays.cpp:8
+break 624.maximum-distance-in-arrays.cpp:25
+break 860.lemonade-change.cpp:41
+
+set exec-wrapper logging enabled

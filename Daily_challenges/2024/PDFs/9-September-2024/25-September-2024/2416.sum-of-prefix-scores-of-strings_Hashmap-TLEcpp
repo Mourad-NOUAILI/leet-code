@@ -1,0 +1,54 @@
+/*
+ * @lc app=leetcode id=2416 lang=cpp
+ *
+ * [2416] Sum of Prefix Scores of Strings
+ */
+
+// @lc code=start
+#include<bits/stdc++.h>
+
+/*
+    Hash map - TLE
+    Time complexity: O(nm+np)
+    Space complexity: O(p+p)
+    n: size of words' array
+    m: the average length of the strings in words array
+    p: number of all prefixes formed by every word in words array
+*/
+
+
+class Solution {
+    public:
+        std::vector<std::string> get_all_prefixes(std::string& s){
+            int m=s.size();
+            std::string pre="";
+            std::vector<std::string> prefixes;
+            for(int i=0;i<m;++i){
+                pre+=s[i];
+                prefixes.push_back(pre);
+            }
+            return prefixes;
+        }
+        std::vector<int> sumPrefixScores(std::vector<std::string>& words){
+           std::unordered_map<std::string,int> prefixes_counts;
+           for(auto& word: words){
+                std::vector<std::string> prefixes=get_all_prefixes(word);
+                for(auto& prefix: prefixes) {
+                    prefixes_counts[prefix]++;
+                }
+           }
+          
+           std::vector<int> ans;
+           for(auto& word: words){
+                int cnt=0;
+                std::vector<std::string> prefixes=get_all_prefixes(word);
+                for(auto& prefix: prefixes){
+                    cnt+=prefixes_counts[prefix];
+                }
+                ans.push_back(cnt); 
+           }
+           return ans;
+        }
+};
+// @lc code=end
+

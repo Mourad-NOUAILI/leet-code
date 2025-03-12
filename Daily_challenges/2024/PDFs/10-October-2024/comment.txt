@@ -1,0 +1,10 @@
+Salam alaykom,
+En C++, on peut faire un "overload" de l’opérateur `>>`, qui permet de lire des données à partir du flux d’entrée (comme le clavier par exemple), pour lire et retourner un tableau.
+L’opérateur `>>` invoque le flux d’entrée (istream) qui n’est d’autre qu’un fichier tampon qui contient une séquence de caractères.
+Donc il faut passer en paramètre de la fonction du overload, ce fichier dont on ne sait pas le nom physique puisqu’il est créer instantanément à l’instant où on invoque `cin>>`. Donc, il est évident de passer en paramètre le nom logique de objet `istream`, dont le mode de passage doit être impérativement par adresse, sinon le compilateur va chercher le fichier en mémoire avec une autre adresse du nom logique donnée en paramètre et le compilateur va générer une erreur.
+(regarder image)
+
+1) C’est une mauvaise pratique de faire passer le nom physique d’un fichier à une fonction.
+2) Il faut passer le nom logique par adresse, pour que le compilateur puisse se pointer à la même adresse du nom physique du fichier.
+
+Veuiller accepter mon passage et Merci
